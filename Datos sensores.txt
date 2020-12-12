@@ -1,0 +1,4 @@
+{"temperatura":23, "humedad":50,"latitud": -79.9079500, "longitud":-2.2058400,"ruta":"ruta1", "Estación": "En granja #4","Encargado":"Emilio Ponce" }
+
+
+{"temperatura":23, "humedad":50,"latitud": -79.9079500, "longitud":-2.2058400,"ruta":"ruta2", "Estación": "En granja #4","Encargado":"Emilio Ponce" }
