@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Raspberry BlockChain</title>
+
+    <link rel="stylesheet" href="/static/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/vendor/DataTables/css/datatables.min.css">
+    <link rel="stylesheet" href="/static/vendor/font-awesome/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/custom.css">
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a href="#" class="navbar-brand">Raspberry BlockChain</a>
+
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">Generador de billetera</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="/make/transaction" class="nav-link">Hacer Transacción</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/view/transactions" class="nav-link">Ver transacciones</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="card-body">
+                    <h4 class="card-title">Enviar datos de sensores:</h4>
+                    <p class="card-text">Ingrese detalles de la transacción y hacer click en el botón "Generar transacción"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container alert alert-secondary">
+        <form id="transaction_form">
+            <div class="row">
+                <label class="col-sm-2">Llave Pública del Remitente:</label>
+                <div class="col-sm-10">
+                    <input type="text" name="sender_public_key" id="sender_public_key" class="form-control" value="30819f300d06092a864886f70d010101050003818d00308189028181009cac82fbb96359d1d1e13201495a50ea3218ee116b36f62f0a1c78b5ddc8102341a64d883c908c689608fc0683ec89e2a171809427d3e37629b03bd5c260088374c2a76316be7fd4eb0f496a8c5dcaaae2ba8da59f4106529855428958ed39c87cbb82e937921380b0696a030399a0a9f709f008fa63d6b4dd7e88315546651f0203010001">
+                </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+                <label class="col-sm-2">Llave Privada del Remitente:</label>
+                <div class="col-sm-10">
+                    <input type="text" name="sender_private_key" id="sender_private_key" class="form-control" value="3082025d020100028181009cac82fbb96359d1d1e13201495a50ea3218ee116b36f62f0a1c78b5ddc8102341a64d883c908c689608fc0683ec89e2a171809427d3e37629b03bd5c260088374c2a76316be7fd4eb0f496a8c5dcaaae2ba8da59f4106529855428958ed39c87cbb82e937921380b0696a030399a0a9f709f008fa63d6b4dd7e88315546651f02030100010281802ffe78b17bfcff4ad32c551127d34eee2f228beb3218c81968d387f6ce55b6fbd5e487e3b009e7b9321cd677787a4152f779b995a90db3a442e905ab59bbe95f40e4fef5c26b9df8dd62cad7b0e53fb8b81c493954e1f4a8c09e0332a8248decd4675a3081f2e8e0dd0bcf819cb4fb1c4b0bf8a586b282aef43aa026e830a6e1024100c1c7dbf80a9539f638a05cfd5368dc2ab7f78734501e659e615eff8fc189af7a3544189ec2525592e70b08dddf3d8481149cdca44a9b4cddf8081c1124ecb2e3024100cefa97a9aa5d656fc44a3238f1ca89a2e785da0beed83db7aab5f1f7f7b2d41814b6871c72dbf012212446c1ba701b53cdde01e10c4edf0046b612be4dbc4d950240256ca4e5ed9d4e59682c4869405fa30db903dc1fd54d5990d1fb57ddfaa1cdbb0b68805cc0e8c7d01c40fc506559eb2a46c1d8b6fe15aa2dc04648ad62f537c3024100afdee0d5eb0c17302423438f7d6cb30cf81b954e8471bbe77fa7c0660a542ac2177f8d48d0143066c74072db145743f12ec190e93033286baca9f33d3f025d0d024100bc7869dcebe83d4ee4c9bf65ee6b432b351e9ab5318306cec04e2eb9d96f297602092ed4ce6d8114004e3042fb4a6b7f9fe3c9888f2fedc30005cb38a5087f29">
+                </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+                <label class="col-sm-2">Llave Pública del Destinatario:</label>
+                <div class="col-sm-10">
+                    <input type="text" name="recipient_public_key" id="recipient_public_key" class="form-control" value="30819f300d06092a864886f70d010101050003818d0030818902818100abb9ed16d9a8ff8019707c6c3f360497e1742f52779b9febd93ce8c05e0ea12d90cc548fa5a4693c1d731c93663f6ec2cf118f2ce2a2355288c3fef00eb67a1a585ca5843c507f56b07605ef8aa0334e0a1251b1e102ddada2baef32d2934782436e6720a91caf33577b7c824c007dbcd3802108232dcc0c15a130c92a241ae10203010001">
+                </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+                <label class="col-sm-2">Data:</label>
+                <div class="col-sm-10">
+                    <input type="text" name="amount" id="amount" class="form-control">
+                </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <input type="button" name="generate_transaction" id="generate_transaction" class="btn btn-primary btn-lg" value="Generar transacción">
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal modal-alert fade" id="basic_modal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+      <div class="modal-dialog">
+
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <div class="modal-title col-md-10">Confirme los detalles de la transacción, ingrese una URL del nodo blockchain y haga clic en "Confirmar transacción" para finalizar su transacción.</div>
+            <button type="button" class="close col-md-2" data-dismiss="modal" aria-hidden="true">&times;</button>
+          </div>
+
+          <div class="modal-body">
+
+            <form id="confirmation_transaction_form">
+
+                <div class="row">
+                  <label class="col-sm-12">Llave Pública Remitente:</label>
+                  <div class="col-sm-12">
+                    <input type="text" name="confirmation_sender_public_key" id="confirmation_sender_public_key" rows="2" class="form-control" readonly>
+
+                  </div>
+                </div>
+
+                <div class="row">
+                  <label class="col-sm-12">Llave Pública Destinatario:</label>
+                  <div class="col-sm-12">
+                    <input type="text" name="confirmation_recipient_public_key" id="confirmation_recipient_public_key" rows="2" class="form-control"  readonly>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <label class="col-sm-12">Data a enviar:</label>
+                  <div class="col-sm-12">
+                    <input type="text" name="confirmation_amount" id="confirmation_amount" rows="2" class="form-control" readonly>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <label class="col-sm-12">Firma de la transacción:</label>
+                  <div class="col-sm-12">
+                    <input type="text" name="transaction_signature" id="transaction_signature" rows="2" class="form-control" readonly>
+                  </div>
+                </div>
+
+            </form>
+
+
+            <div class="row">
+              <label class="col-sm-12">URL Nodo Blockchain:</label>
+              <div class="col-sm-12">
+                <input type="text" name="node_url" id="node_url" rows="2" class="form-control" value="http://192.168.100.206:5001">
+              </div>
+            </div>
+
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+            <button type="button" id="button_confirm_transaction" class="btn btn-success">Confirmar Transacción</button>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- Alert Message for successful transaction -->
+    <div class="modal modal-alert fade" id="success_transaction_modal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          </div>
+
+          <div class="modal-body">
+            <div class="alert alert-success" role="alert">
+              <h4 class="alert-heading">Transacción exitosa!</h4>
+              <p>Completó con éxito su transacción. Se agregará al siguiente bloque.</p>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" id="confirm_transaction" class="btn btn-success" data-dismiss="modal">OK</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <script src="/static/vendor/jquery/jquery.min.js"></script>
+    <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/vendor/DataTables/js/datatables.min.js"></script>
+    <script src="/static/vendor/DataTables/js/ellipsis.js"></script>
+
+    <script>
+        $(function() {
+            $("#generate_transaction").click(function() {
+                $.ajax({
+                    url: "/generate/transaction",
+                    type: "POST",
+                    dataType: 'json',
+                    data: $('#transaction_form').serialize(),
+                    success: function(response) {
+                        document.getElementById('confirmation_sender_public_key').value = response['transaction']['sender_public_key'];
+                        document.getElementById('confirmation_recipient_public_key').value = response['transaction']['recipient_public_key'];
+                        document.getElementById('confirmation_amount').value = response['transaction']['amount'];
+                        document.getElementById('transaction_signature').value = response['signature'];
+
+                        $('#basic_modal').modal('show');
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                });
+            });
+
+            $('#button_confirm_transaction').click(function() {
+                $.ajax({
+                    url: document.getElementById('node_url').value + '/transactions/new',
+                    type: 'POST',
+                    dataType: 'json',
+                    header: {'Access-Control-Allow-Origin': '*'},
+                    data: $('#confirmation_transaction_form').serialize(),
+                    success: function(response) {
+                        $('#sender_public_key').val('');
+                        $('#sender_private_key').val('');
+                        $('#recipient_public_key').val('');
+                        $('#amount').val('');
+
+                        $('#basic_modal').modal('hide');
+                        $('#success_transaction_modal').modal('show');
+
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+
+                });
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>

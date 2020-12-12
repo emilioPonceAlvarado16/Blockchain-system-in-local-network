@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.6/proj4.js"></script>
+<script src="https://code.highcharts.com/maps/highmaps.js"></script>
+<script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/mapdata/countries/ec/ec-all.js"></script>
+
+	
+
+<style type="text/css">
+        #container {
+    height: 800px; 
+    width: 800px; 
+    margin: 0 auto; 
+}</style>
+
+
+
+	<title>
+		Highcharts
+	</title>
+
+	
+</head>
+<body>
+	
+
+
+
+<div id="container" class='miDiv'></div>
+
+<script>
+
+
+var salinas={
+
+            x:2052.091,
+            y:-3691.303
+        };
+        var guayaquil={
+            x:3698.051,
+            y:-3741.181
+        };
+        var quito={
+            x:6006.241,
+            y:-7057.141
+
+        };
+
+function pointsToPath(from, to) {
+		console.log(Math.atan((from.x - to.x) /
+                (from.y - to.y)));
+
+		console.log(['M', from.x, from.y, 'L', to.x, to.y]);
+        return ['M', from.x, from.y, 'L', to.x, to.y];
+    }
+
+    // Initiate the chart
+    
+   Highcharts.mapChart('container', {
+        legend: {
+            enabled: true
+        },
+        credits: {
+            enabled: false
+        },
+        tooltip: {
+        headerFormat: '',
+        pointFormat: '<b>{point.name}</b><br>Lat: {point.lat}, Lon: {point.lon}',
+
+    },
+
+        series: [{
+            nullColor: "#f3f3f3",
+            mapData: Highcharts.maps['countries/ec/ec-all'],
+            borderColor: "#606060",
+            name: "Basemap",
+            showInLegend: false,
+            plotBackgroundColor: '#00004d',
+
+        }, 
+
+
+        	{
+        name: "Transporte",
+        type: "mapline",
+        lineWidth: 3,
+        color: '#ff0000' ,
+        data: [{
+            "id": "LocationB -> LocationA",
+            "path": pointsToPath(guayaquil, quito)
+        },
+{
+            "id": "Locationc -> LocationB",
+            "path": pointsToPath(guayaquil, salinas)
+        }
+
+
+        ]
+    },  {
+        // Specify points using lat/lon
+        type: 'mappoint',
+        name: 'Ciudades',
+                
+        color: '#00a000',
+        data: [{
+            name: 'Guayaquil',
+            lat: -2.19616,
+            lon:  -79.88621
+        }, {
+            name: 'Quito',
+            lat:  -0.225219,
+            lon:  -78.5248,
+
+        }, {
+            name: 'Salinas',
+            lat:  -2.22622 ,
+            lon:  -80.85873,
+            dataLabels: {
+                
+                align: 'left',
+                x: 5,
+                verticalAlign: 'middle',
+            }
+        }
+
+
+
+        ]
+    }
+
+
+        	
+
+        ],
+        "title": {
+            "text": "Módulo GPS"
+        },mapNavigation: {
+        enabled: true
+    },
+        "xAxis": {
+            "crosshair": {
+                "zIndex": 5,
+                "color": "gray",
+                "dashStyle": "dot",
+                "snap": false
+            }
+        },
+        "yAxis": {
+            "crosshair": {
+                "zIndex": 5,
+                "color": "gray",
+                "dashStyle": "dot",
+                "snap": false
+            }
+        },
+        "chart": {
+            "zoomType": "xy",
+            "animation": true,
+             "plotBackgroundColor": '#00004d'
+        }
+    }
+
+
+
+    );
+
+
+
+//   	var chart = {
+  //  locationB: { "lon": -97.3123,
+      //          "lat": 32.9868},
+    //locationA: {"lon": -117.891209,
+        //        "lat": 34.924031},
+  
+	//};
+	
+
+	//var locationA = chart.get('locationA'),
+    //var locationB = chart.get('locationB');
+
+   // var chart =  $('#container').Highcharts.mapChart(),//Highcharts.mapChart(),
+   //     locationA = chart.get('locationA'),
+     //   locationB = chart.get('locationB');
+
+    // Add the flight routes series for London and Lerwick using the already defined points
+   // chart.addSeries({
+     //   "name": "Shipments",
+       // "type": "mapline",
+        //"lineWidth": 3,
+        //"color": Highcharts.getOptions().colors[0],
+        //"data": [{
+          //  "id": "LocationB -> LocationA",
+            //"path": pointsToPath(locationB, locationA)
+       // }]
+   // });
+</script>
+
+
+
+
+
+
+
+</body>
+</html>

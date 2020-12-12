@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<head>
+        <title>MEGAMAXI</title>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.dropotron.min.js"></script>
+        <script src="js/skel.min.js"></script>
+        <script src="js/skel-layers.min.js"></script>
+        <script src="js/init.js"></script>
+        <noscript>
+            <link rel="stylesheet" href="css/skel.css" />
+            <link rel="stylesheet" href="css/style.css" />
+            <link rel="stylesheet" href="css/style-wide.css" />
+        </noscript>
+        <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+
+
+<!--Script de Mapa-->  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.6/proj4.js"></script>
+<script src="https://code.highcharts.com/maps/highmaps.js"></script>
+<script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/maps/modules/offline-exporting.js"></script>
+<script src="https://code.highcharts.com/mapdata/countries/ec/ec-all.js"></script>
+
+    <title>
+        hola
+    </title>
+
+    <style type="text/css">
+        #container {
+    height: 800px; 
+    width: 800px; 
+    margin: 0 auto; 
+}
+.loading {
+    margin-top: 10em;
+    text-align: center;
+    color: gray;
+}
+    </style>
+
+
+<!--/Script de Mapa-->  
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->  
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+
+    </head>
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Line Chart</title>
+    <script async="" src="Line%20Chart_files/analytics.js"></script><script src="Line%20Chart_files/Chart.js"></script>
+    <script src="Line%20Chart_files/utils.js"></script>
+    <style>
+    canvas{
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+    </style>
+<style type="text/css">/* Chart.js */
+@keyframes chartjs-render-animation{from{opacity:.99}to{opacity:1}}.chartjs-render-monitor{animation:chartjs-render-animation 1ms}.chartjs-size-monitor,.chartjs-size-monitor-expand,.chartjs-size-monitor-shrink{position:absolute;direction:ltr;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1}.chartjs-size-monitor-expand>div{position:absolute;width:1000000px;height:1000000px;left:0;top:0}.chartjs-size-monitor-shrink>div{position:absolute;width:200%;height:200%;left:0;top:0}</style>
+
+
+<html lang="es">
+</head>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+</head>
+<body>
+
+<div class="wrapper style3">
+
+    <div id="header" class="skel-panels-fixed">
+                        <div id="logo">
+                            <h5><a href="index.html">MEGAMAXI</a></h5>
+                            <span class="tag"></span>
+                        </div>
+                        <nav id="nav">
+                            <ul>
+                                <li class="active"><a href="index.html">Homepage</a></li>
+                                <li><a href="D:/Descargas/ESPOL Último Semestre/Materia Integradora/Front-end/Table_Responsive_v1/Table_Responsive_v1/index.html">Productos</a></li>
+                                <li><a href="grafico.html">Flujo</a></li>
+                                <li><a href="inicio.html">Cerrar Sesión</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+
+<div id="container"></div>
+
+
+</body>
+    
+    <script type="text/javascript">
+var salinas={
+
+            x:2052.091,
+            y:-3691.303
+        };
+        var guayaquil={
+            x:3698.051,
+            y:-3741.181
+        };
+        var quito={
+            x:6006.241,
+            y:-7057.141
+
+        };
+
+function pointsToPath(from, to) {
+        console.log(Math.atan((from.x - to.x) /
+                (from.y - to.y)));
+
+        console.log(['M', from.x, from.y, 'L', to.x, to.y]);
+        return ['M', from.x, from.y, 'L', to.x, to.y];
+    }
+
+    // Initiate the chart
+    
+   Highcharts.mapChart('container', {
+        legend: {
+            enabled: true
+        },
+        credits: {
+            enabled: false
+        },
+        tooltip: {
+        headerFormat: '',
+        pointFormat: '<b>{point.name}</b><br>Lat: {point.lat}, Lon: {point.lon}',
+
+    },
+
+        series: [{
+            nullColor: "#f3f3f3",
+            mapData: Highcharts.maps['countries/ec/ec-all'],
+            borderColor: "#606060",
+            name: "Basemap",
+            showInLegend: false,
+            plotBackgroundColor: '#00004d',
+
+        }, 
+
+
+            {
+        name: "Ruta",
+        type: "mapline",
+        lineWidth: 3,
+        color: '#ff0000' ,
+        data: [{
+            "id": "LocationB -> LocationA",
+            "path": pointsToPath(guayaquil, quito)
+        },
+{
+            "id": "Locationc -> LocationB",
+            "path": pointsToPath(guayaquil, salinas)
+        }
+
+
+        ]
+    },  {
+        // Specify points using lat/lon
+        type: 'mappoint',
+        name: 'Ciudades',
+                
+        color: '#00a000',
+        data: [{
+            name: 'Guayaquil',
+            lat: -2.19616,
+            lon:  -79.88621
+        }, {
+            name: 'Quito',
+            lat:  -0.225219,
+            lon:  -78.5248,
+
+        }, {
+            name: 'Salinas',
+            lat:  -2.22622 ,
+            lon:  -80.85873,
+            dataLabels: {
+                
+                align: 'left',
+                x: 5,
+                verticalAlign: 'middle',
+            }
+        }
+
+
+
+        ]
+    }
+
+
+            
+
+        ],
+        "title": {
+            "text": "Módulo GPS"
+        },mapNavigation: {
+        enabled: true
+    },
+        "xAxis": {
+            "crosshair": {
+                "zIndex": 5,
+                "color": "gray",
+                "dashStyle": "dot",
+                "snap": false
+            }
+        },
+        "yAxis": {
+            "crosshair": {
+                "zIndex": 5,
+                "color": "gray",
+                "dashStyle": "dot",
+                "snap": false
+            }
+        },
+        "chart": {
+            "zoomType": "xy",
+            "animation": true,
+             "plotBackgroundColor": '#00004d'
+        }
+    }
+
+
+
+    );
+
+
+
+//      var chart = {
+  //  locationB: { "lon": -97.3123,
+      //          "lat": 32.9868},
+    //locationA: {"lon": -117.891209,
+        //        "lat": 34.924031},
+  
+    //};
+    
+
+    //var locationA = chart.get('locationA'),
+    //var locationB = chart.get('locationB');
+
+   // var chart =  $('#container').Highcharts.mapChart(),//Highcharts.mapChart(),
+   //     locationA = chart.get('locationA'),
+     //   locationB = chart.get('locationB');
+
+    // Add the flight routes series for London and Lerwick using the already defined points
+   // chart.addSeries({
+     //   "name": "Shipments",
+       // "type": "mapline",
+        //"lineWidth": 3,
+        //"color": Highcharts.getOptions().colors[0],
+        //"data": [{
+          //  "id": "LocationB -> LocationA",
+            //"path": pointsToPath(locationB, locationA)
+       // }]
+   // });    
+    </script>
+    
+
+
+<figure class="highcharts-figure">
+  <p class="highcharts-description">
+    
+  </p>
+</figure>
+
+
+    <div style="width:50%; margin: 0 auto"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+        <canvas id="canvas" style="display: block; width: 1428px; height: 714px;" width="1428" height="714" class="chartjs-render-monitor"></canvas>
+
+    </div>
+
+
+    <br>
+    <br>
+    
+    <script>
+        var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        var config = {
+            type: 'line',
+            data: {
+                labels: ['1', '2', '3', '4', '5', '6', '7'],
+                datasets: [{
+                    label: 'Temperatura',
+                    backgroundColor: window.chartColors.red,
+                    borderColor: window.chartColors.red,
+                    data: [
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor()
+                    ],
+                    fill: false,
+                }, {
+                    label: 'Humedad',
+                    fill: false,
+                    backgroundColor: window.chartColors.blue,
+                    borderColor: window.chartColors.blue,
+                    data: [
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor()
+                    ],
+                }]
+            },
+            options: {
+                responsive: true,
+                title: {
+                    display: true,
+                    text: 'Gráfico de seguimiento'
+                },
+                tooltips: {
+                    mode: 'index',
+                    intersect: false,
+                },
+                layout: {
+            padding: {
+                left: 0,
+                right: 0,
+                top: 0,
+                bottom: 0
+            }
+        }
+,
+                hover: {
+                    mode: 'nearest',
+                    intersect: true
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Etapa del proceso'
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Value'
+                        }
+                    }]
+                }
+            }
+        };
+
+        window.onload = function() {
+            var ctx = document.getElementById('canvas').getContext('2d');
+            window.myLine = new Chart(ctx, config);
+        };
+
+        document.getElementById('randomizeData').addEventListener('click', function() {
+            config.data.datasets.forEach(function(dataset) {
+                dataset.data = dataset.data.map(function() {
+                    return randomScalingFactor();
+                });
+
+            });
+
+            window.myLine.update();
+        });
+
+        var colorNames = Object.keys(window.chartColors);
+        document.getElementById('addDataset').addEventListener('click', function() {
+            var colorName = colorNames[config.data.datasets.length % colorNames.length];
+            var newColor = window.chartColors[colorName];
+            var newDataset = {
+                label: 'Dataset ' + config.data.datasets.length,
+                backgroundColor: newColor,
+                borderColor: newColor,
+                data: [],
+                fill: false
+            };
+
+            for (var index = 0; index < config.data.labels.length; ++index) {
+                newDataset.data.push(randomScalingFactor());
+            }
+
+            config.data.datasets.push(newDataset);
+            window.myLine.update();
+        });
+
+        document.getElementById('addData').addEventListener('click', function() {
+            if (config.data.datasets.length > 0) {
+                var month = MONTHS[config.data.labels.length % MONTHS.length];
+                config.data.labels.push(month);
+
+                config.data.datasets.forEach(function(dataset) {
+                    dataset.data.push(randomScalingFactor());
+                });
+
+                window.myLine.update();
+            }
+        });
+
+        document.getElementById('removeDataset').addEventListener('click', function() {
+            config.data.datasets.splice(0, 1);
+            window.myLine.update();
+        });
+
+        document.getElementById('removeData').addEventListener('click', function() {
+            config.data.labels.splice(-1, 1); // remove the label first
+
+            config.data.datasets.forEach(function(dataset) {
+                dataset.data.pop();
+            });
+
+            window.myLine.update();
+        });
+    </script>
+
+
+
+
+<div class="limiter">
+        <div class="container-table100">
+            <div class="wrap-table100">
+                <div class="table100">
+                    <table>
+                        <a href="#" class="button">+NUEVO</a>
+                        <thead>
+                            <br>
+                            <br>
+
+                            <tr class="table100-head">
+                                <th class="column1">Proceso</th>
+                                <th class="column2">ID</th>
+                                <th class="column3">Temperatura</th>
+                                <th class="column4">Humedad</th>
+                                <th class="column5">Fecha</th>
+                                <th class="column6"> </th>
+                                <th class="column7"> </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                <tr>
+                                    <td class="column1">Cosecha</td>
+                                    <td class="column2">1</td>
+                                    <td class="column3">21</td>
+                                    <td class="column4">2</td>
+                                    <td class="column5">9/11/2021</td>
+                                    <th class="column7"> <a href="#" class="button small">Editar</a></th>
+                                    <th class="column7"> <a href="#" class="button small">Eliminar</a></th>
+                                </tr>
+                                <tr>
+                                    <td class="column1">Registro</td>
+                                    <td class="column2">40</td>
+                                    <td class="column3">08</td>
+                                    <td class="column4">5</td>
+                                    <td class="column5">5/8/2021</td>
+                                    <th class="column7"> <a href="#" class="button small">Editar</a></th>
+                                    <th class="column7"> <a href="#" class="button small">Eliminar</a></th>
+                                </tr>
+                                <tr>
+                                    <td class="column1">Empacado</td>
+                                    <td class="column2">2</td>
+                                    <td class="column3">15</td>
+                                    <td class="column4">10</td>
+                                    <td class="column5">20/12/2021</td>
+                                    <th class="column7"> <a href="#" class="button small">Editar</a></th>
+                                    <th class="column7"><a href="#" class="button small">Eliminar</a> </th>
+                                </tr>
+                                <tr>
+                                    <td class="column1">Distribución</td>
+                                    <td class="column2">4</td>
+                                    <td class="column3">29</td>
+                                    <td class="column4">15</td>
+                                    <td class="column5">5/5/2021</td>
+                                    <th class="column7"> <a href="#" class="button small">Editar</a></th>
+                                    <th class="column7"> <a href="#" class="button small">Eliminar</a></th>
+                                </tr>
+                                
+                                
+                                
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+<!--===============================================================================================-->  
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+    <script src="vendor/bootstrap/js/popper.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+    <script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+    <script src="js/main.js"></script>
+
+</body>
+</html>    

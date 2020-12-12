@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+   
+
+   <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Megamaxi</title>
+
+    <link rel="stylesheet" href="/static/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/vendor/DataTables/css/datatables.min.css">
+    <link rel="stylesheet" href="/static/vendor/font-awesome/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/custom.css">
+	<style >
+		
+.miDiv {
+ background-color: rgba(255, 255, 255, 0.8);
+   font-size:10px;
+  width: 900px;
+  	padding-top: 20px;
+    margin: 0 auto;
+}
+.combo {
+ background-color: rgba(255, 255, 255, 0.8);
+  width: 900px;
+    margin: 0 auto;
+    padding-top: 20px;
+    font-size: 16px;
+}
+
+
+	</style>
+
+	<title>
+		Highcharts
+	</title>
+</head>
+<body>
+	
+
+<div class= "combo" id="combo" type="combo">
+	<h3 style="margin: 0 auto;">Escoja una opción:</h3>
+<select id ="cob" class="Temperatura" name="Temperatura" style="height: 30	px; width: 100px;" >
+        <option value=""></option>
+        <option value="Temperatura">Temperatura</option>
+        <option value="Humedad">Humedad</option>
+        <option value="Mapa">Mapa</option>
+    </select>
+<div class="resultado"></div>
+
+
+	
+</div>
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a href="#" class="navbar-brand">Megamaxi</a>
+
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a href="" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/inicio" class="nav-link">Cerrar Sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<div id="container" class='miDiv'></div>
+
+<script>
+	var chart_id = {{ chartID|safe }}
+	var credits={"text":"Isaias Ponce", "href":"https://IsaiasPonce.com"};
+	var series = {{ series|safe }}
+	var title = {{ title|safe }}
+	var xAxis = {{ xAxis|safe }}
+	var yAxis = {{ yAxis|safe }}
+	var chart = {{ chart|safe }}
+
+</script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+
+	
+	<script src="../static/graph.js"></script>
+
+
+<script type="text/javascript">
+	const selectElement = document.querySelector('.Temperatura');
+
+selectElement.addEventListener('change', (event) => {
+
+    const resultado = document.querySelector('.resultado');
+    if(event.target.value=="Temperatura"){
+    	  window.location="http://192.168.100.206:5001/temperatura";
+    }else if(event.target.value=='Mapa'){
+    	window.location="http://192.168.100.206:5001/mapa";
+		//location.href='../static/prueba2.html';
+    }
+	else if(event.target.value=='Humedad'){
+    	window.location="http://192.168.100.206:5001/humedad";
+    }
+
+});
+</script>
+
+
+</body>
+</html>

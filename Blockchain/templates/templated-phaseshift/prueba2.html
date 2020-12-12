@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.6/proj4.js"></script>
+<script src="https://code.highcharts.com/maps/highmaps.js"></script>
+<script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/maps/modules/offline-exporting.js"></script>
+<script src="https://code.highcharts.com/mapdata/countries/ec/ec-all.js"></script>
+
+	<title>
+		hola
+	</title>
+
+	<style type="text/css">
+		#container {
+    height: 800px; 
+    width: 800px; 
+    margin: 0 auto; 
+}
+.loading {
+    margin-top: 10em;
+    text-align: center;
+    color: gray;
+}
+	</style>
+</head>
+<body>
+
+	<div id="container"></div>
+
+
+</body>
+	
+	<script type="text/javascript">
+	Highcharts.mapChart('container', {
+
+    chart: {
+    	plotBorderWidth: 5,
+        map: 'countries/ec/ec-all',
+        
+       plotBackgroundColor: '#00004d',
+
+  
+    },
+
+    title: {
+        text: 'Módulo GPS'
+    },
+
+    mapNavigation: {
+        enabled: true
+    },
+
+    tooltip: {
+        headerFormat: '',
+        pointFormat: '<b>{point.name}</b><br>Lat: {point.lat}, Lon: {point.lon}',
+
+    },
+
+    series: [
+
+{
+        type: 'map',
+        name: 'Areas',
+        data: [{
+            name: "Land",
+            color: "#f4e2ba"
+           
+            }, 
+     ]
+  ,
+        showInLegend: false
+    }
+,
+
+{
+
+        // Use the gb-all map with no data as a basemap
+        name: 'Basemap',
+        borderColor: '#A0A0A0',
+        nullColor: 'rgba(200, 200, 200, 0.3)',
+        showInLegend: false,
+
+    },
+    {
+        // Specify points using lat/lon
+        type: 'mappoint',
+        name: 'Ciudades',
+		        
+        color: '#00a000',
+        data: [{
+            name: 'Guayaquil',
+            lat: -2.19616,
+            lon:  -79.88621
+        }, {
+            name: 'Quito',
+            lat:  -0.225219,
+            lon:  -78.5248,
+
+        }, {
+            name: 'Salinas',
+            lat:  -2.22622 ,
+            lon:  -80.85873,
+            dataLabels: {
+            	
+                align: 'left',
+                x: 5,
+                verticalAlign: 'middle',
+            }
+        }]
+    }]
+});
+        
+	</script>
+	
+
+
+<figure class="highcharts-figure">
+  <p class="highcharts-description">
+    
+  </p>
+</figure>
+</html>
