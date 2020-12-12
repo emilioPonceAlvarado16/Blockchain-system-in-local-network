@@ -1,0 +1,133 @@
+data: [{
+            name: 'Guayaquil',
+            lat: -2.19616,
+            lon:  -79.88621
+        }, {
+            name: 'Quito',
+            lat:  -0.225219,
+            lon:  -78.5248,
+
+        },{
+            name: 'Cotopaxi',
+            lat: -0.813335   ,
+            lon:  -78.8554,
+
+        }, 
+        {
+            name: 'Bolivar',
+            lat: -1.67621   ,
+            lon: -79.0887,
+
+        },  
+        {
+            name: 'Esmeraldas',
+            lat: 0.80053   ,
+            lon:  -79.45397,
+
+        },
+        
+        {
+            name: 'Manabí',
+            lat: -0.727203  ,
+            lon: -80.1619,
+
+        },
+         {
+            name: 'Santo Domingo',
+            lat: -0.34834 ,
+            lon: -79.2525,
+
+        },
+        {
+            name: 'Cuenca',
+            lat:-3.15279 ,
+            lon: -79.09090,
+
+        },
+        {
+            name: 'Pastaza',
+            lat: -1.84655 ,
+            lon: -76.8768,
+
+        },
+
+       {
+            name: 'Salinas',
+            lat:  -2.22622 ,
+            lon:  -80.85873,
+            dataLabels: {
+                
+                align: 'left',
+                x: 5,
+                verticalAlign: 'middle',
+            }
+        }
+
+
+Highcharts.mapChart('container', {
+        legend: {
+            enabled: true
+        },
+        credits: {
+            enabled: false
+        },
+        tooltip: {
+        headerFormat: '',
+        pointFormat: '<b>{point.name}</b><br>Lat: {point.lat}, Lon: {point.lon}',
+
+    },
+
+
+Quito
+ x:6006.241,
+ y:-7057.141
+
+
+Cotopaxi
+5445.554
+-6067.1786
+
+var salinas={
+
+            x:2052.091,
+            y:-3691.303
+        };
+        var guayaquil={
+            x:3698.051,
+            y:-3741.181
+        };
+
+Manabi
+x: 3232.3426
+-6212.907
+
+Santo domingo
+4772.952
+-6850.103
+
+Esmeraldas
+4431.405
+-8783.547
+
+
+Bolivar 
+5049.1799
+-4614.994
+
+Cuenca
+5041.963
+-2129.607
+
+Pastaza
+8798.434
+-4321.908
+
+Morona Santiago
+7218.336
+-3307.5708
+
+Azuay
+
+
+
+       
