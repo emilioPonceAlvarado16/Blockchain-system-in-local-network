@@ -3,7 +3,7 @@ from time import time
 from flask_cors import CORS
 from collections import OrderedDict
 import binascii
-from Cryptodome.PublicKey import RSA
+from Cryptodome.PublicKey import RSA #Cryptodome library may depends from the IDE, you can try with another similar library from Crypto family
 from Cryptodome.Signature import PKCS1_v1_5
 from Cryptodome.Hash import SHA
 from uuid import uuid4
